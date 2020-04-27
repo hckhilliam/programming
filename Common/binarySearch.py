@@ -1,4 +1,5 @@
-def binarySearch(a):
+def binarySearch(a, target):
+    # Returns lower of value if cannot be found.
     l = 0
     h = len(a)
     c = h // 2
