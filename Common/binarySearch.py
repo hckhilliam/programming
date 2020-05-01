@@ -5,9 +5,11 @@ def binarySearch(a, target):
     c = h // 2
     while c != l:
         n = a[c]
+        # Go lower case.
         if n > target:
             h = c
             c = (c + l) // 2
+        # Go higher case.
         else:
             l = c
             c = (c + h) // 2
