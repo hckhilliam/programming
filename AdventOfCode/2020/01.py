@@ -1,6 +1,7 @@
 
 from collections import defaultdict
 
+
 def part1(data):
     return two_sum(2020, data)
 
