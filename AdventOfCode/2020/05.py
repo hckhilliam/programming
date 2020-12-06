@@ -1,11 +1,13 @@
 import math
 
+
 def part1(data):
     rows = parse_data(data)
     m = 0
     for r in rows:
         m = max(findV(r), m)
     return m
+
 
 def part2(data):
     rows = parse_data(data)
@@ -40,7 +42,6 @@ def findV(r):
             pz = math.ceil((p + pz) / 2)
     fc = p
     return fr * 8 + fc
-
 
 
 def parse_data(data):
