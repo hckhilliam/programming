@@ -4,10 +4,11 @@ Author: Scoder12"""
 import time
 import math
 from typing import Any
+import importlib
 
-def format_filename(day):
+def format_filename(day, year):
     # You can customize this to your liking.
-    return str(day).zfill(2)
+    return "{}/{}".format(year, str(day).zfill(2))
 
 
 def format_runtime(ms):
@@ -53,9 +54,9 @@ def run_part(part: str, mod: Any, data: str):
     return rtime
 
 
-def get_data(day):
+def get_data(day, year):
     # Try to find the filename
-    fname = "AdventOfCode/2020/" + format_filename(day) + ".txt"
+    fname = "{}.txt".format(format_filename(day, year))
     print(fname)
     try:
         with open(fname, "r") as f:
@@ -69,8 +70,8 @@ def get_data(day):
 
 def run(day, year=2020):
     print(f"AOC {year} Day {day}")
-    mod = __import__(format_filename(day))
-    data = get_data(day)
+    mod = importlib.import_module(format_filename(day, year).replace('/', '.'))
+    data = get_data(day, year)
 
     part1Time = run_part(1, mod, data)
     part2Time = run_part(2, mod, data)
