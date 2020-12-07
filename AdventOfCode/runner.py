@@ -6,6 +6,7 @@ import math
 from typing import Any
 import importlib
 
+
 def format_filename(day, year):
     # You can customize this to your liking.
     return "{}/{}".format(year, str(day).zfill(2))
@@ -56,7 +57,7 @@ def run_part(part: str, mod: Any, data: str):
 
 def get_data(day, year):
     # Try to find the filename
-    fname = "{}.txt".format(format_filename(day, year))
+    fname = "AdventOfCode/{}.txt".format(format_filename(day, year))
     print(fname)
     try:
         with open(fname, "r") as f:
