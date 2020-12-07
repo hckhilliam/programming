@@ -3,6 +3,24 @@ def part1(data):
     codes = [int(c) for c in rows[0].split(',')]
     codes[1] = 12
     codes[2] = 2
+    return find_value(codes)
+
+
+def part2(data):
+    rows = parse_data(data)
+    target = 19690720
+    codes = [int(c) for c in rows[0].split(',')]
+    for i in range(100):
+        for j in range(100):
+            inp = list(codes)
+            inp[1] = i
+            inp[2] = j
+            if find_value(inp) == target:
+                return 100 * i + j
+    return -1
+
+
+def find_value(codes):
     i = 0
     while True:
         f = codes[i]
@@ -16,10 +34,6 @@ def part1(data):
             codes[codes[i + 3]] = n * n2
         i += 4
     return codes[0]
-
-
-def part2(data):
-    rows = parse_data(data)
 
 
 def parse_data(data):
