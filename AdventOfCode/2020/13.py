@@ -32,7 +32,7 @@ def part2(data):
             continue
         eqns.append('{} * {} - {}'.format(b, currCh, i))
         currCh = chr(ord(currCh) + 1)
-    return ' = '.join(eqns)  # Drop this value into wolfram alpha, find a for n = 0 lol.
+    return ' = '.join(eqns)  # Drop this value into wolfram alpha, find integer a for n = 0 lol.
 
 
 def parse_data(data):
