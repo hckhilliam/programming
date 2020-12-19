@@ -1,8 +1,3 @@
-from collections import defaultdict
-import functools
-import math
-
-
 def part1(data):
     rows = [int(i) for i in parse_data(data)]
     v = set(rows[:25])
@@ -38,7 +33,6 @@ def part2(data):
                 i += 1
                 break
     return None
-
 
 
 def parse_data(data):

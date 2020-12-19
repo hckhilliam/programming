@@ -1,8 +1,3 @@
-from collections import defaultdict
-import functools
-import math
-
-
 def part1(data):
     rows = [int(r) for r in parse_data(data)]
     rows.sort()

@@ -1,8 +1,3 @@
-from collections import defaultdict
-import functools
-import math
-
-
 def part1(data):
     data = [int(i) for i in parse_data(data)[0].split(',')]
     d = {k: i + 1 for i, k in enumerate(data[:-1])}

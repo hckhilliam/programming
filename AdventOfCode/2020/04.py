@@ -1,4 +1,3 @@
-
 def part1(data):
     rows = parse_data(data)
     valid = 0

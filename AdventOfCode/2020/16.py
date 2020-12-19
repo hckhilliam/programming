@@ -1,6 +1,4 @@
 from collections import defaultdict
-import functools
-import math
 
 
 def part1(data):

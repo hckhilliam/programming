@@ -1,8 +1,3 @@
-from collections import defaultdict
-import functools
-import math
-
-
 def part1(data):
     rows = parse_data(data)
     # Each cycle adds 2 layers

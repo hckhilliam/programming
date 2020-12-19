@@ -1,8 +1,3 @@
-from collections import defaultdict
-import functools
-import math
-
-
 def part1(data):
     rows = parse_data(data)
     dirs = [(1, 0), (0, -1), (-1, 0), (0, 1)]  # E S W N
