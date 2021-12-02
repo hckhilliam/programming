@@ -1,11 +1,10 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 import functools
 import math
-import re
 
 
 def part1(data):
-    rows = parse_data(data)
+    rows = parse_data(data)[0].split(',')
 
 
 def part2(data):
