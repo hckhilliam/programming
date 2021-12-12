@@ -23,6 +23,6 @@ for member in members.values():
 for name, ds in deltas.items():
     print(name)
     i = 1
-    while str(i) in ds:
-        print(f'Day {i}: {ds[str(i)]}')
-        i += 1
+    for i in range(25):
+        if str(i) in ds:
+            print(f'Day {i}: {ds[str(i)]}')
