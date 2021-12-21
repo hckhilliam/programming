@@ -14,46 +14,45 @@ class Scanner(object):
 
 def part1(data):
     scanners = parse_data(data)
-    return 0
 
-    # for i in range(1, len(scanners)):
-    #     find_relative_points(scanners[i])
+    for i in range(1, len(scanners)):
+        find_relative_points(scanners[i])
 
-    # scanners[0].final_points = set(scanners[0].points)
-    # finished_scanners = deque([scanners[0]])
-    # unfinished_scanners = {s:s for s in scanners[1:]}
-    # while unfinished_scanners:
-    #     f_scanner = finished_scanners.popleft()
-    #     for u_scanner in list(unfinished_scanners.values()):
-    #         print(f'Finding match for scanner {u_scanner.i} to {f_scanner.i}')
-    #         done = False
-    #         for rotated_points in u_scanner.relative_points:
-    #             for p1 in f_scanner.final_points:
-    #                 for p2 in rotated_points:
-    #                     dp = np.array([
-    #                         p2[0] - p1[0],
-    #                         p2[1] - p1[1],
-    #                         p2[2] - p1[2]
-    #                     ])
-    #                     new_points = {tuple(pp - dp) for pp in rotated_points}
-    #                     inter = new_points.intersection(f_scanner.final_points)
-    #                     if len(inter) >= 12:
-    #                         print(f'Found scanner {u_scanner.i}')
-    #                         done = True
-    #                         u_scanner.final_points = set(new_points)
-    #                         finished_scanners.append(u_scanner)
-    #                         unfinished_scanners.pop(u_scanner)
-    #                         break
-    #                 if done:
-    #                     break
-    #             if done:
-    #                 break
-    #         if not done:
-    #             print(f'Couldnt find scanner {u_scanner.i}')
-    # all_beacons = scanners[0].final_points
-    # for i in range(1, len(scanners)):
-    #     all_beacons = all_beacons.union(scanners[i].final_points)
-    # return len(all_beacons)
+    scanners[0].final_points = set(scanners[0].points)
+    finished_scanners = deque([scanners[0]])
+    unfinished_scanners = {s:s for s in scanners[1:]}
+    while unfinished_scanners:
+        f_scanner = finished_scanners.popleft()
+        for u_scanner in list(unfinished_scanners.values()):
+            print(f'Finding match for scanner {u_scanner.i} to {f_scanner.i}')
+            done = False
+            for rotated_points in u_scanner.relative_points:
+                for p1 in f_scanner.final_points:
+                    for p2 in rotated_points:
+                        dp = np.array([
+                            p2[0] - p1[0],
+                            p2[1] - p1[1],
+                            p2[2] - p1[2]
+                        ])
+                        new_points = {tuple(pp - dp) for pp in rotated_points}
+                        inter = new_points.intersection(f_scanner.final_points)
+                        if len(inter) >= 12:
+                            print(f'Found scanner {u_scanner.i}')
+                            done = True
+                            u_scanner.final_points = set(new_points)
+                            finished_scanners.append(u_scanner)
+                            unfinished_scanners.pop(u_scanner)
+                            break
+                    if done:
+                        break
+                if done:
+                    break
+            if not done:
+                print(f'Couldnt find scanner {u_scanner.i}')
+    all_beacons = scanners[0].final_points
+    for i in range(1, len(scanners)):
+        all_beacons = all_beacons.union(scanners[i].final_points)
+    return len(all_beacons)
 
 
 def part2(data):
