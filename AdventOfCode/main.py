@@ -1,4 +1,4 @@
 # Repl.it AOC Python Runner
 import runner
 
-runner.run(day=17, year=2021)
+runner.run(day=23, year=2021)
