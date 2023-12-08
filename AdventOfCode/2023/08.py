@@ -85,7 +85,7 @@ def get_all_steps(start, m, instruction):
     initial_steps = []
     steps = 0
     ins_ind = 0
-    # Find first cycle.
+    # Navigate to cycle.
     while curr not in visited_z:
         if curr.endswith('Z'):
             visited_z.add(curr)
@@ -98,7 +98,7 @@ def get_all_steps(start, m, instruction):
         ins_ind = (ins_ind + 1) % len(instruction)
     steps = 0
     cycle_steps = []
-    # Keep adding to repeated cycle to ensure.
+    # Find cycle pattern.
     visited_z = set()
     while curr not in visited_z:
         if curr.endswith('Z'):

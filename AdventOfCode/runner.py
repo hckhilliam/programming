@@ -55,9 +55,12 @@ def run_part(part: str, mod: Any, data: str):
     return rtime
 
 
-def get_data(day, year):
+def get_data(day, year, is_test):
     # Try to find the filename
-    fname = "AdventOfCode/{}.txt".format(format_filename(day, year))
+    if is_test:
+        fname = "AdventOfCode/{}-test.txt".format(format_filename(day, year))
+    else:
+        fname = "AdventOfCode/{}.txt".format(format_filename(day, year))
     print(fname)
     try:
         with open(fname, "r") as f:
@@ -69,10 +72,10 @@ def get_data(day, year):
     return data
 
 
-def run(day, year=2020):
+def run(day, year=2020, is_test=False):
     print(f"AOC {year} Day {day}")
     mod = importlib.import_module(format_filename(day, year).replace('/', '.'))
-    data = get_data(day, year)
+    data = get_data(day, year, is_test)
 
     part1Time = run_part(1, mod, data)
     part2Time = run_part(2, mod, data)
