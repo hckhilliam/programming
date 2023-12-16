@@ -2,6 +2,9 @@ from collections import defaultdict, deque
 import functools
 import math
 import re
+from utils import p_rows, to_array
+
+debug = False
 
 
 def part1(data):

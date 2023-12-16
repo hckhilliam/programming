@@ -2,11 +2,14 @@ from collections import defaultdict, deque
 import functools
 import math
 import re
+from utils import p_rows, to_array
+
+debug = False
 
 
 def part1(data):
     rows = parse_data(data)
-    progress = [list(r) for r in rows]
+    progress = to_array(rows)
     lit = defaultdict(set)
     traverse(rows, start=(0, 0), d=(1, 0), lit=lit, progress=progress)
 
@@ -23,9 +26,8 @@ def traverse(rows, start, d, lit, progress):
         lit[(x, y)].add((dx, dy))
 
         progress[y][x] = '#'
-        # for r in progress:
-        #     print(''.join(r))
-        # print()
+        if debug:
+            p_rows(progress)
 
         c = rows[y][x]
         if c == '/':

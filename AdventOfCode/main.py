@@ -2,8 +2,13 @@
 import runner
 import sys
 
-is_test = 0
+part = None
 if len(sys.argv) > 1:
-    is_test = int(sys.argv[1])
+    part = int(sys.argv[1])
 
-runner.run(day=16, year=2023, is_test=is_test)
+is_test = 0
+if len(sys.argv) > 2:
+    is_test = int(sys.argv[2])
+
+
+runner.run(day=16, year=2023, part=part, is_test=is_test)

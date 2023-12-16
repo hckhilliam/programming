@@ -72,15 +72,18 @@ def get_data(day, year, is_test):
     return data
 
 
-def run(day, year=2020, is_test=False):
+def run(day, year=2020, part=None, is_test=False):
     print(f"AOC {year} Day {day}")
     mod = importlib.import_module(format_filename(day, year).replace('/', '.'))
     data = get_data(day, year, is_test)
 
-    part1Time = run_part(1, mod, data)
-    part2Time = run_part(2, mod, data)
-    if part1Time != 0 and part2Time != 0:
-        print(f"Total runtime: {format_runtime(part1Time + part2Time)}")
+    part1Time = 0
+    part2Time = 0
+    if not part or part == 1:
+        part1Time = run_part(1, mod, data)
+    if not part or part == 2:
+        part2Time = run_part(2, mod, data)
+    print(f"Total runtime: {format_runtime(part1Time + part2Time)}")
 
 
 def get_day(max_day=None):
