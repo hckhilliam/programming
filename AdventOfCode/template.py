@@ -2,7 +2,9 @@ from collections import defaultdict, deque
 import functools
 import math
 import re
+import heapq
 from utils import p_rows, to_array
+import sys
 
 debug = False
 
