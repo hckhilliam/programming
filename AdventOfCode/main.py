@@ -11,4 +11,4 @@ if len(sys.argv) > 2:
     is_test = int(sys.argv[2])
 
 
-runner.run(day=17, year=2023, part=part, is_test=is_test)
+runner.run(day=18, year=2023, part=part, is_test=is_test)
