@@ -58,9 +58,9 @@ def run_part(part: str, mod: Any, data: str):
 def get_data(day, year, is_test):
     # Try to find the filename
     if is_test:
-        fname = "AdventOfCode/{}-test.txt".format(format_filename(day, year))
+        fname = "{}-test.txt".format(format_filename(day, year))
     else:
-        fname = "AdventOfCode/{}.txt".format(format_filename(day, year))
+        fname = "{}.txt".format(format_filename(day, year))
     print(fname)
     try:
         with open(fname, "r") as f:
