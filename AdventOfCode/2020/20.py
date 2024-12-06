@@ -81,6 +81,42 @@ def part1(data):
 
 def part2(data):
     rows = parse_data(data)
+    tiles = {}
+    dim = len(rows[1])
+    i = 0
+    while i < len(rows):
+        tile = int(rows[i].split(' ')[1][:-1])
+        tiles[tile] = rows[i + 1: i + 1 + dim]
+        i += 2 + dim
+
+    matches = defaultdict(dict)
+    for t, tile in tiles.items():
+        for t2, tile2 in tiles.items():
+            if t == t2:
+                continue
+
+            for d in dirs:
+                for c in COMPARES:
+                    m = True
+                    st1 = d.start
+                    st2 = c.start
+                    for i in range(dim):
+                        if tile[st1[0]][st1[1]] != tile2[st2[0]][st2[1]]:
+                            m = False
+                            break
+                        st1 = (st1[0] + d.delta[0], st1[1] + d.delta[1])
+                        st2 = (st2[0] + c.delta[0], st2[1] + c.delta[1])
+                    if m:
+                        matches[t][d.side] = (t2, c)
+
+    monster_coords
+    ret = 1
+    print(matches)
+    for k, v in matches.items():
+        if len(v) == 2:
+            print(v)
+            ret *= k
+    return ret
 
 
 def parse_data(data):
