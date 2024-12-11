@@ -3,7 +3,7 @@ import functools
 import math
 import re
 import heapq
-from utils import p_rows, to_array
+from utils import p_rows, to_array, to_int_array, in_bounds, DIRS, O_DIRS, P
 import sys
 
 debug = False
